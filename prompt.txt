@@ -1,0 +1,59 @@
+# Build Teeplay — Static T-Shirt E-Commerce Website
+
+Build a modern, responsive static e-commerce website called **Teeplay** for selling T-shirts.
+
+### 1. Tech Stack
+- React + Vite + TypeScript.
+- Tailwind CSS for styling.
+- React Router for navigation.
+- Strict TypeScript with properly defined interfaces and types.
+- Use mock data and localStorage for demo persistence. No backend or database.
+
+### 2. Customer Pages
+- Home page with hero banner, featured T-shirts, and collections.
+- Product listing with search, category filters, sorting, and product cards.
+- Product details with images, sizes, colors, and prices.
+- Shopping cart with quantity updates and item removal.
+- Mock checkout and order confirmation.
+- Login/register screens with demo authentication.
+- Customer profile and mock order history.
+
+### 3. Admin Pages
+Create a separate admin dashboard with:
+- Dashboard overview using mock sales and order statistics.
+- Product management: add, edit, and delete products.
+- Order management with mock status updates.
+- Admin management UI to add or revoke administrator emails.
+
+### 4. Routing and Demo Authorization
+Use React Router with protected routes and two roles:
+- `1 = ADMIN`
+- `2 = CLIENT`
+
+Demo super-admin:
+- Email: `ashutoshkhajuria@gmail.com`
+- Password: `ashutosh`
+
+Requirements:
+- Provide a demo login flow using mock authentication.
+- The super-admin must not be removable or demotable through the UI.
+- Only the super-admin can add or revoke other administrators.
+- Clients must not access admin pages through normal application navigation.
+- Persist demo session, cart, and product changes using localStorage.
+
+**Important:** This is a frontend-only demo. Credentials and role checks implemented in React are not secure authentication or authorization. Do not present this as production-ready security.
+
+### 5. Design
+- Modern, youthful streetwear brand aesthetic.
+- Clean layouts, attractive T-shirt product cards, and high-quality product imagery.
+- Responsive navigation, mobile-friendly layouts, and consistent design tokens.
+- Include loading, empty, and error states where appropriate.
+- Use reusable components and maintainable folder structure.
+
+### 6. Instructions
+Inspect the repository, create a short implementation plan, and then build the website. Ensure all routes and interactions work with mock data, TypeScript checks pass, and the project runs using `npm install` and `npm run dev`.
+
+Do not create a backend, dat
+abase, real payment integration, or unnecessary infrastructure. Prioritize a polished UI and working frontend interactions.
+add huskey, es lint and prettier to it ask for es lint installation options, es lint and prittier should work in
+  such a
