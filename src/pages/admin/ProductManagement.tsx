@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getProducts, saveProducts, Product } from '../../utils/storage';
+import { getProducts, saveProducts } from '../../utils/storage';
+import { Product } from '../../types';
 
 const ProductManagement: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(getProducts());
