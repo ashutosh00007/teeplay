@@ -64,7 +64,7 @@ const Profile: React.FC = () => {
             <h2 className="text-xl font-bold text-gray-800 mb-4">Order History</h2>
             {orders.length > 0 ? (
               <div className="space-y-4">
-                {orders.map(order => (
+                {orders.map((order) => (
                   <div key={order.id} className="border rounded-lg p-4">
                     <div className="flex justify-between items-start mb-2">
                       <div>
@@ -73,7 +73,9 @@ const Profile: React.FC = () => {
                           {new Date(order.createdAt).toLocaleDateString()}
                         </p>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}>
+                      <span
+                        className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}
+                      >
                         {order.status}
                       </span>
                     </div>

@@ -1,5 +1,5 @@
 import { User, Product, Order, CartItem } from '../types';
-import { mockUsers, mockProducts, mockOrders, SUPER_ADMIN_EMAIL } from '../data/mockData';
+import { mockUsers, mockProducts, mockOrders } from '../data/mockData';
 
 const STORAGE_KEYS = {
   USERS: 'teeplay_users',
@@ -60,7 +60,7 @@ export const saveProducts = (products: Product[]) => {
 
 export const getProductById = (id: string): Product | undefined => {
   const products = getProducts();
-  return products.find(p => p.id === id);
+  return products.find((p) => p.id === id);
 };
 
 // Orders
@@ -75,7 +75,7 @@ export const saveOrders = (orders: Order[]) => {
 
 export const getOrdersByUserId = (userId: string): Order[] => {
   const orders = getOrders();
-  return orders.filter(o => o.userId === userId);
+  return orders.filter((o) => o.userId === userId);
 };
 
 export const addOrder = (order: Order) => {
@@ -86,7 +86,7 @@ export const addOrder = (order: Order) => {
 
 export const updateOrderStatus = (orderId: string, status: Order['status']) => {
   const orders = getOrders();
-  const order = orders.find(o => o.id === orderId);
+  const order = orders.find((o) => o.id === orderId);
   if (order) {
     order.status = status;
     saveOrders(orders);
@@ -125,13 +125,13 @@ export const addAdmin = (email: string, password: string, name: string) => {
 
 export const revokeAdmin = (userId: string) => {
   const users = getUsers();
-  const user = users.find(u => u.id === userId);
-  
+  const user = users.find((u) => u.id === userId);
+
   // Cannot revoke super admin
   if (user?.isSuperAdmin) {
     return false;
   }
-  
+
   if (user && user.role === 1) {
     user.role = 2; // Change to CLIENT
     saveUsers(users);
@@ -142,5 +142,5 @@ export const revokeAdmin = (userId: string) => {
 
 export const getAdmins = (): User[] => {
   const users = getUsers();
-  return users.filter(u => u.role === 1);
+  return users.filter((u) => u.role === 1);
 };

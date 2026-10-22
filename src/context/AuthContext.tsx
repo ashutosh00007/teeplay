@@ -15,8 +15,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = (email: string, password: string): boolean => {
     const users = getUsers();
-    const foundUser = users.find(u => u.email === email && u.password === password);
-    
+    const foundUser = users.find((u) => u.email === email && u.password === password);
+
     if (foundUser) {
       setUser(foundUser);
       setCurrentUser(foundUser);

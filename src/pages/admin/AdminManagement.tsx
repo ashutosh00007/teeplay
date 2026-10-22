@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { getAdmins, addAdmin, revokeAdmin, getUsers } from '../../utils/storage';
+import { getAdmins, addAdmin, revokeAdmin } from '../../utils/storage';
 import { User } from '../../types';
 
 const AdminManagement: React.FC = () => {
@@ -16,8 +16,8 @@ const AdminManagement: React.FC = () => {
 
   const handleAddAdmin = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const newAdmin = addAdmin(formData.email, formData.password, formData.name);
+
+    addAdmin(formData.email, formData.password, formData.name);
     setAdmins(getAdmins());
     setIsAdding(false);
     setFormData({ email: '', password: '', name: '' });
@@ -25,8 +25,8 @@ const AdminManagement: React.FC = () => {
   };
 
   const handleRevokeAdmin = (userId: string) => {
-    const user = admins.find(u => u.id === userId);
-    
+    const user = admins.find((u) => u.id === userId);
+
     if (user?.isSuperAdmin) {
       alert('Cannot revoke super-admin privileges.');
       return;
@@ -139,7 +139,7 @@ const AdminManagement: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {admins.map(admin => (
+            {admins.map((admin) => (
               <tr key={admin.id} className="border-b">
                 <td className="py-3 px-4 font-medium">{admin.name}</td>
                 <td className="py-3 px-4">{admin.email}</td>

@@ -7,7 +7,7 @@ const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { addToCart } = useCart();
-  
+
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -56,11 +56,7 @@ const ProductDetails: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Product Image */}
         <div>
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full rounded-lg shadow-md"
-          />
+          <img src={product.image} alt={product.name} className="w-full rounded-lg shadow-md" />
         </div>
 
         {/* Product Info */}
@@ -73,7 +69,7 @@ const ProductDetails: React.FC = () => {
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">Size</label>
             <div className="flex flex-wrap gap-2">
-              {product.sizes.map(size => (
+              {product.sizes.map((size) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
@@ -93,7 +89,7 @@ const ProductDetails: React.FC = () => {
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">Color</label>
             <div className="flex flex-wrap gap-2">
-              {product.colors.map(color => (
+              {product.colors.map((color) => (
                 <button
                   key={color}
                   onClick={() => setSelectedColor(color)}

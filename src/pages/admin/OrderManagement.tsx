@@ -41,7 +41,7 @@ const OrderManagement: React.FC = () => {
 
       {orders.length > 0 ? (
         <div className="space-y-4">
-          {orders.map(order => (
+          {orders.map((order) => (
             <div key={order.id} className="bg-white rounded-lg shadow-md p-6">
               <div className="flex justify-between items-start mb-4">
                 <div>
@@ -50,7 +50,9 @@ const OrderManagement: React.FC = () => {
                     {new Date(order.createdAt).toLocaleString()}
                   </p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}>
+                <span
+                  className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(order.status)}`}
+                >
                   {order.status}
                 </span>
               </div>
@@ -74,7 +76,15 @@ const OrderManagement: React.FC = () => {
               <div className="border-t pt-4">
                 <h4 className="font-semibold text-gray-700 mb-2">Update Status</h4>
                 <div className="flex flex-wrap gap-2">
-                  {(['pending', 'processing', 'shipped', 'delivered', 'cancelled'] as Order['status'][]).map(status => (
+                  {(
+                    [
+                      'pending',
+                      'processing',
+                      'shipped',
+                      'delivered',
+                      'cancelled',
+                    ] as Order['status'][]
+                  ).map((status) => (
                     <button
                       key={status}
                       onClick={() => handleStatusChange(order.id, status)}

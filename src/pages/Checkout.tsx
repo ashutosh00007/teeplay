@@ -9,7 +9,7 @@ const Checkout: React.FC = () => {
   const navigate = useNavigate();
   const { cart, clearCart, getCartTotal } = useCart();
   const { user } = useAuth();
-  
+
   const [shippingAddress, setShippingAddress] = useState({
     name: user?.name || '',
     address: '',
@@ -62,7 +62,9 @@ const Checkout: React.FC = () => {
                     type="text"
                     required
                     value={shippingAddress.name}
-                    onChange={(e) => setShippingAddress({ ...shippingAddress, name: e.target.value })}
+                    onChange={(e) =>
+                      setShippingAddress({ ...shippingAddress, name: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
@@ -72,7 +74,9 @@ const Checkout: React.FC = () => {
                     type="text"
                     required
                     value={shippingAddress.address}
-                    onChange={(e) => setShippingAddress({ ...shippingAddress, address: e.target.value })}
+                    onChange={(e) =>
+                      setShippingAddress({ ...shippingAddress, address: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
@@ -82,7 +86,9 @@ const Checkout: React.FC = () => {
                     type="text"
                     required
                     value={shippingAddress.city}
-                    onChange={(e) => setShippingAddress({ ...shippingAddress, city: e.target.value })}
+                    onChange={(e) =>
+                      setShippingAddress({ ...shippingAddress, city: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
@@ -92,7 +98,9 @@ const Checkout: React.FC = () => {
                     type="text"
                     required
                     value={shippingAddress.zipCode}
-                    onChange={(e) => setShippingAddress({ ...shippingAddress, zipCode: e.target.value })}
+                    onChange={(e) =>
+                      setShippingAddress({ ...shippingAddress, zipCode: e.target.value })
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   />
                 </div>
