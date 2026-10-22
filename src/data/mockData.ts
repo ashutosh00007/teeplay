@@ -77,7 +77,8 @@ export const mockProducts: Product[] = [
   {
     id: '5',
     name: 'Vintage Wash',
-    description: 'Pre-washed vintage look with soft, comfortable feel. Retro style meets modern comfort.',
+    description:
+      'Pre-washed vintage look with soft, comfortable feel. Retro style meets modern comfort.',
     price: 32.99,
     image: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=500&h=500&fit=crop',
     category: 'Vintage',

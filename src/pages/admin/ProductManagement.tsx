@@ -49,7 +49,7 @@ const ProductManagement: React.FC = () => {
 
   const handleDelete = (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
-      const updatedProducts = products.filter(p => p.id !== id);
+      const updatedProducts = products.filter((p) => p.id !== id);
       setProducts(updatedProducts);
       saveProducts(updatedProducts);
     }
@@ -65,14 +65,14 @@ const ProductManagement: React.FC = () => {
       price: parseFloat(formData.price),
       image: formData.image,
       category: formData.category,
-      sizes: formData.sizes.split(',').map(s => s.trim()),
-      colors: formData.colors.split(',').map(c => c.trim()),
+      sizes: formData.sizes.split(',').map((s) => s.trim()),
+      colors: formData.colors.split(',').map((c) => c.trim()),
       featured: formData.featured,
     };
 
     let updatedProducts;
     if (editingProduct) {
-      updatedProducts = products.map(p => p.id === editingProduct.id ? newProduct : p);
+      updatedProducts = products.map((p) => (p.id === editingProduct.id ? newProduct : p));
     } else {
       updatedProducts = [...products, newProduct];
     }
@@ -154,7 +154,9 @@ const ProductManagement: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Sizes (comma-separated)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Sizes (comma-separated)
+              </label>
               <input
                 type="text"
                 required
@@ -165,7 +167,9 @@ const ProductManagement: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Colors (comma-separated)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Colors (comma-separated)
+              </label>
               <input
                 type="text"
                 required
@@ -237,7 +241,7 @@ const ProductManagement: React.FC = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map(product => (
+            {products.map((product) => (
               <tr key={product.id} className="border-b">
                 <td className="py-3 px-4">
                   <div className="flex items-center">

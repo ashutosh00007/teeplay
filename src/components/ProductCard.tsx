@@ -11,11 +11,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <Link to={`/products/${product.id}`}>
         <div className="relative">
-          <img
-            src={product.image}
-            alt={product.name}
-            className="w-full h-64 object-cover"
-          />
+          <img src={product.image} alt={product.name} className="w-full h-64 object-cover" />
           {product.featured && (
             <span className="absolute top-2 right-2 bg-primary-600 text-white text-xs px-2 py-1 rounded">
               Featured

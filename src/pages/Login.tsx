@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
-  
+
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -15,7 +15,7 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (isLogin) {
       const success = login(formData.email, formData.password);
       if (success) {
@@ -25,7 +25,9 @@ const Login: React.FC = () => {
       }
     } else {
       // Demo registration - just alert since this is a mock
-      alert('Demo registration: In a real app, this would create a new user account. For now, please use the demo accounts:\n\nAdmin: ashutoshkhajuria@gmail.com / ashutosh\nCustomer: customer@example.com / customer123');
+      alert(
+        'Demo registration: In a real app, this would create a new user account. For now, please use the demo accounts:\n\nAdmin: ashutoshkhajuria@gmail.com / ashutosh\nCustomer: customer@example.com / customer123'
+      );
     }
   };
 

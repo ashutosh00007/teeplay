@@ -37,12 +37,15 @@ const Cart: React.FC = () => {
         {/* Cart Items */}
         <div className="lg:col-span-2">
           <div className="bg-white rounded-lg shadow-md">
-            {cart.map(item => {
-              const product = products.find(p => p.id === item.productId);
+            {cart.map((item) => {
+              const product = products.find((p) => p.id === item.productId);
               if (!product) return null;
 
               return (
-                <div key={`${item.productId}-${item.size}-${item.color}`} className="p-6 border-b last:border-b-0">
+                <div
+                  key={`${item.productId}-${item.size}-${item.color}`}
+                  className="p-6 border-b last:border-b-0"
+                >
                   <div className="flex items-center">
                     <img
                       src={product.image}
@@ -51,8 +54,12 @@ const Cart: React.FC = () => {
                     />
                     <div className="ml-4 flex-1">
                       <h3 className="text-lg font-semibold text-gray-800">{product.name}</h3>
-                      <p className="text-sm text-gray-600">Size: {item.size} | Color: {item.color}</p>
-                      <p className="text-lg font-bold text-primary-600 mt-2">${product.price.toFixed(2)}</p>
+                      <p className="text-sm text-gray-600">
+                        Size: {item.size} | Color: {item.color}
+                      </p>
+                      <p className="text-lg font-bold text-primary-600 mt-2">
+                        ${product.price.toFixed(2)}
+                      </p>
                     </div>
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center">

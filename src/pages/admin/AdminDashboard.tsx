@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getOrders, getProducts, getAdmins } from '../../utils/storage';
+import { getOrders, getProducts } from '../../utils/storage';
 
 const AdminDashboard: React.FC = () => {
   const orders = getOrders();
   const products = getProducts();
-  const admins = getAdmins();
 
   const totalSales = orders.reduce((sum, order) => sum + order.total, 0);
-  const pendingOrders = orders.filter(o => o.status === 'pending').length;
-  const deliveredOrders = orders.filter(o => o.status === 'delivered').length;
+  const pendingOrders = orders.filter((o) => o.status === 'pending').length;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -75,18 +73,23 @@ const AdminDashboard: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {orders.slice(0, 5).map(order => (
+                {orders.slice(0, 5).map((order) => (
                   <tr key={order.id} className="border-b">
                     <td className="py-3 px-4">{order.id}</td>
                     <td className="py-3 px-4">{new Date(order.createdAt).toLocaleDateString()}</td>
                     <td className="py-3 px-4 font-semibold">${order.total.toFixed(2)}</td>
                     <td className="py-3 px-4">
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                        order.status === 'delivered' ? 'bg-green-100 text-green-800' :
-                        order.status === 'shipped' ? 'bg-blue-100 text-blue-800' :
-                        order.status === 'processing' ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-gray-100 text-gray-800'
-                      }`}>
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          order.status === 'delivered'
+                            ? 'bg-green-100 text-green-800'
+                            : order.status === 'shipped'
+                              ? 'bg-blue-100 text-blue-800'
+                              : order.status === 'processing'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-gray-100 text-gray-800'
+                        }`}
+                      >
                         {order.status}
                       </span>
                     </td>
